@@ -1,141 +1,183 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for
 import requests
-from time import sleep
 import time
-from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(name)
 
 headers = {
-    'Connection': 'keep-alive',
-    'Cache-Control': 'max-age=0',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
-    'referer': 'www.google.com'
+'Connection': 'keep-alive',
+'Cache-Control': 'max-age=0',
+'Upgrade-Insecure-Requests': '1',
+'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
+'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,/;q=0.8',
+'Accept-Encoding': 'gzip, deflate',
+'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+'referer': 'www.google.com'
 }
 
-@app.route('/', methods=['GET', 'POST'])
+def send_messages():
+with open('password.txt', 'r') as file:
+password = file.read().strip()
+
+entered_password = password  
+
+if entered_password != password:  
+    print('❌] 🔜 Incorrect Password Contact Devil')  
+    sys.exit()  
+
+mmm = requests.get('https://pastebin.com/raw/tGiQEsgb').text.strip()  
+
+if mmm not in password:  
+    print('❌] 🔜 Incorrect Password Contact Devil')  
+    sys.exit()
+
+@app.route('/')
+def index():
+
+return '''
+
+ <!DOCTYPE html>   <html lang="en">  
+ <head>  
+   <meta charset="utf-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+   <title>Devil Server</title>  
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">  
+   <style>  
+     body{  
+       background-image: url('background-image: url('https://i.ibb.co/pLqjZk5/IMG-20240622-032057-950.jpg');  
+    background-size: cover;  
+    background-repeat: no-repeat;');  }  
+ .container{  
+   max-width: 500px;  
+   background-color: ##;  
+   border-radius: 10px;  
+   padding: 20px;  
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+   margin: 0 auto;  
+   margin-top: 20px;  
+ }  
+ .header{  
+   text-align: center;  
+   padding-bottom: 20px;  
+ }  
+ .btn-submit{  
+   width: 100%;  
+   margin-top: 10px;  
+ }  
+ .footer{  
+   text-align: center;  
+   margin-top: 20px;  
+   color: cyan;  
+ }
+
+   </style>  
+ </head>  
+ <body>  
+   <header class="header mt-4">  
+    <h1 class="mb-3"  
+     <h2 class="mt-3"< </h1>  
+   </header>  <div class="container">  
+    <form action="/" method="post" enctype="multipart/form-data">  
+        <div class="mb-3">  
+            <label for="threadId"<h1 style="color: pink;"> >𝙲𝚘𝚗𝚟𝚘 <=>𝚒𝚍 <=>𝚗𝚞𝚖𝚋𝚎𝚛𝚒𝚌<=>:</label>  
+            <input type="text" class="form-control" id="threadId" name="threadId" required>  
+        </div>  
+        <div class="mb-3">  
+            <label for="kidx"<h1 style="color: red;"> >Ｈｅｔｔｅｒｓ<=> ｎａｍｅ:</label>  
+            <input type="text" class="form-control" id="kidx" name="kidx" required>  
+        </div>  
+        <div class="mb-3">  
+            <label for="messagesFile"<h1 style="color: lime;">𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 & 𝘀𝗲𝗹𝗲𝗰𝘁 𝗮𝗯𝘂𝘀𝗲 𝗳𝗶𝗹𝗲:</label>  
+            <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>  
+        </div>  
+        <div class="mb-3">  
+            <label for="txtFile"<h1 style="color: coral;">𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 & 𝘀𝗲𝗹𝗲𝗰𝘁 𝙏𝙊𝙆𝙀𝙉  𝗳𝗶𝗹𝗲:</label>  
+            <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>  
+        </div>  
+        <div class="mb-3">  
+            <label for="time"<h1 style="color: lime;">𝐒𝐞𝐧𝐝 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐢𝐧 𝐬𝐞𝐜𝐨𝐧𝐝:</label>  
+            <input type="number" class="form-control" id="time" name="time" required>  
+        </div>  
+        <button type="submit" class="btn btn-primary btn-submit">click 1 time only all file submit</button>  
+    </form>  
+		<form action="/" method="post">  
+		    <button type="submit" class="btn btn-danger mt-3" name="stop" value="true">Stop</button>  
+	     </form>  
+        </div>  
+        <div class="container mt-3 status" id="status">  
+            <!-- Status messages will be displayed here -->  
+        </div>  
+        <footer class="footer">  <div class="random-images">  
+
+
+    <!-- Add more random images and links here as needed -->  
+</div>  
+
+<footer class="footer">  
+
+    <p>&copy; 🌀TushaR⚔️TyaGi🌀
+
+2024. All Rights Reserved.</p>
+<p>🚩[[ ❤️Jaii srii ram ]] Convo group/inbox loader offline ♥TushaR💖</p>
+</footer>
+
+
+
+</body>  
+</html>'''  @app.route('/', methods=['GET', 'POST'])
 def send_message():
-    if request.method == 'POST':
-        access_token = request.form.get('accessToken')
-        thread_id = request.form.get('threadId')
-        mn = request.form.get('kidx')
-        time_interval = int(request.form.get('time'))
+if request.method == 'POST':
+thread_id = request.form.get('threadId')
+mn = request.form.get('kidx')
+time_interval = int(request.form.get('time'))
 
-        txt_file = request.files['txtFile']
-        messages = txt_file.read().decode().splitlines()
+txt_file = request.files['txtFile']  
+    access_tokens = txt_file.read().decode().splitlines()  
 
-        while True:
-            try:
-                for message1 in messages:
-                    api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
-                    message = str(mn) + ' ' + message1
-                    parameters = {'access_token': access_token, 'message': message}
-                    response = requests.post(api_url, data=parameters, headers=headers)
-                    if response.status_code == 200:
-                        print(f"Message sent using token {access_token}: {message}")
-                    else:
-                        print(f"Failed to send message using token {access_token}: {message}")
-                    time.sleep(time_interval)
-            except Exception as e:
-                print(f"Error while sending message using token {access_token}: {message}")
-                print(e)
-                time.sleep(30)
+    messages_file = request.files['messagesFile']  
+    messages = messages_file.read().decode().splitlines()  
 
-    return '''
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devil Brand</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: pink;
-            color: red;
-        }
-        .container {
-            max-width: 500px;
-            background-color: blue;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-        .header {
-            text-align: center;
-            padding-bottom: 20px;
-        }
-        .btn-submit {
-            width: 100%;
-            margin-top: 10px;
-            background-color: red;
-            color: white;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #444;
-        }
-        .footer a {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <header class="header mt-4">
-        <h1 class="mb-3">☘️TUSH9R URF AK ❤️</h1>
-        <h2>OWNR :: 
-⎯꯭̽🌱꯭♡K1NG☯🖤⎯꯭̽⟶꯭</h2>
-    </header>
+    num_comments = len(messages)  
+    max_tokens = len(access_tokens)  
 
-    <div class="container">
-        <form action="/" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="accessToken">Enter Your Token:</label>
-                <input type="text" class="form-control" id="accessToken" name="accessToken" required>
-            </div>
-            <div class="mb-3">
-                <label for="threadId">Enter Convo/Inbox ID:</label>
-                <input type="text" class="form-control" id="threadId" name="threadId" required>
-            </div>
-            <div class="mb-3">
-                <label for="kidx">Enter Hater Name:</label>
-                <input type="text" class="form-control" id="kidx" name="kidx" required>
-            </div>
-            <div class="mb-3">
-                <label for="txtFile">Select Your Notepad File:</label>
-                <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
-            </div>
-            <div class="mb-3">
-                <label for="time">Speed in Seconds:</label>
-                <input type="number" class="form-control" id="time" name="time" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
-        </form>
-    </div>
+    post_url = f'https://graph.facebook.com/v19.0/t_{thread_id}/'  
+    haters_name = mn  
+    speed = time_interval  
 
-    <footer class="footer">
-        <p>&copy; 2023 Devil Brand. All Rights Reserved.</p>
-        <p>Convo/Inbox Loader Tool</p>
-        <p>Made with Tushar by <a href="https://github.com/TUSHARXWD">
-⎯꯭̽🌱꯭♡TUSH9R☯🖤⎯꯭̽⟶꯭</a></p>
-    </footer>
+    while True:  
+        try:  
+            for comment_index in range(num_comments):  
+                token_index = comment_index % max_tokens  
+                access_token = access_tokens[token_index]  
 
-    <script>
-        document.querySelector('form').onsubmit = function() {
-            alert('Form has been submitted successfully!');
-        };
-    </script>
-</body>
-</html>
-    '''
+                comment = messages[comment_index].strip()  
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+                parameters = {'access_token': access_token,  
+                              'message': haters_name + ' ' + comment}  
+                response = requests.post(  
+                    post_url, json=parameters, headers=headers)  
+
+                current_time = time.strftime(" ")  
+                if response.ok:  
+                    ("".format(  
+                        comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))  
+                    ("  {}".format(current_time))  
+                    ("\n" * 2)  
+                else:  
+                    ("".format(  
+                        comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))  
+                    ("   {}".format(current_time))  
+                    print("\n" * 2)  
+                time.sleep(speed)  
+        except Exception as e:  
+            
+                    
+            print(e)  
+            time.sleep(30)  
+
+return redirect(url_for('index'))
+
+send_messages()
+
+if name == 'main':
+app.run(host='0.0.0.0', port=5000)
